@@ -38,6 +38,42 @@
       background-size: 42px 42px;
       mask-image: linear-gradient(to bottom, black, transparent 78%);
     }
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 42%, #2a190b 0%, #120a05 42%, #050302 100%);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+    .page-loader.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .page-loader::before,
+    .page-loader::after { content: ''; position: absolute; width: 42vw; height: 42vw; max-width: 520px; max-height: 520px; border: 1px solid rgba(251,191,36,.12); transform: rotate(45deg); animation: loaderDiamond 8s linear infinite; }
+    .page-loader::after { width: 30vw; height: 30vw; animation-direction: reverse; border-color: rgba(245,158,11,.08); }
+    .loader-stars { position: absolute; inset: 0; opacity: .7; background-image: radial-gradient(circle, #fde68a 0 1px, transparent 1.5px), radial-gradient(circle, rgba(255,255,255,.8) 0 1px, transparent 1.5px); background-size: 106px 113px, 173px 151px; animation: loaderStars 16s linear infinite; }
+    .loader-content { position: relative; z-index: 2; width: min(90vw, 430px); text-align: center; }
+    .loader-seal { position: relative; display: grid; place-items: center; width: 124px; height: 124px; margin: 0 auto 28px; border: 1px solid rgba(251,191,36,.42); border-radius: 50%; color: #fde68a; font-family: Georgia, serif; font-size: 54px; text-shadow: 0 0 18px rgba(251,191,36,.8); box-shadow: 0 0 30px rgba(245,158,11,.18), inset 0 0 26px rgba(245,158,11,.12); animation: loaderFloat 4s ease-in-out infinite; }
+    .loader-seal::before, .loader-seal::after { content: ''; position: absolute; inset: -12px; border: 1px solid rgba(251,191,36,.22); border-radius: 50%; animation: sealOrbit 7s linear infinite; }
+    .loader-seal::after { inset: -24px; border-style: dashed; opacity: .5; animation-direction: reverse; animation-duration: 13s; }
+    .loader-glyph { position: absolute; color: rgba(253,230,138,.65); font-family: Georgia, serif; font-size: 23px; animation: glyphOrbit 5s ease-in-out infinite; }
+    .loader-glyph.g1 { top: -27px; left: 50%; transform: translateX(-50%); }
+    .loader-glyph.g2 { right: -12px; top: 48%; animation-delay: -.9s; }
+    .loader-glyph.g3 { bottom: -25px; left: 50%; animation-delay: -1.7s; }
+    .loader-glyph.g4 { left: -12px; top: 48%; animation-delay: -2.4s; }
+    .loader-kicker { color: rgba(251,191,36,.72); font-size: 11px; font-weight: 800; letter-spacing: .34em; text-transform: uppercase; }
+    .loader-title { margin-top: 10px; color: #fcd34d; font-family: 'Cinzel', serif; font-size: clamp(22px, 6vw, 32px); font-weight: 800; letter-spacing: .08em; }
+    .loader-copy { margin-top: 10px; color: rgba(255,247,237,.58); font-size: 12px; }
+    .loader-progress { height: 3px; margin: 26px auto 0; width: min(74vw, 270px); overflow: hidden; border-radius: 99px; background: rgba(251,191,36,.12); }
+    .loader-progress span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #b45309, #fde68a, #f59e0b); box-shadow: 0 0 14px rgba(251,191,36,.7); animation: loaderProgress 1.15s cubic-bezier(.2,.8,.3,1) forwards; }
+    .loader-foot { display: block; margin-top: 18px; color: rgba(253,230,138,.35); font-size: 10px; letter-spacing: .16em; }
+    @keyframes loaderDiamond { from { transform: rotate(45deg) scale(.86); opacity: .2; } 50% { opacity: .8; } to { transform: rotate(405deg) scale(1.12); opacity: .2; } }
+    @keyframes loaderStars { from { transform: translateY(0); } to { transform: translateY(30px); } }
+    @keyframes loaderFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    @keyframes sealOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes glyphOrbit { 0%,100% { opacity: .45; transform: translateY(0) scale(.9); } 50% { opacity: 1; transform: translateY(-5px) scale(1.08); } }
+    @keyframes loaderProgress { to { width: 100%; } }
     .egypt-scene {
       position: absolute;
       inset: 0 0 auto;
@@ -173,27 +209,6 @@
     .field::placeholder { color: #78716c; }
     .field.invalid { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,.10); }
     .field.valid { border-color: #34d399; }
-    .audio-control {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-    .audio-control::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(100deg, transparent, rgba(251,191,36,.16), transparent);
-      transform: translateX(-110%);
-      transition: transform .5s ease;
-    }
-    .audio-control:hover::before { transform: translateX(110%); }
-    .audio-bars { display: inline-flex; align-items: end; gap: 2px; height: 14px; }
-    .audio-bars i { display: block; width: 2px; height: 5px; border-radius: 2px; background: currentColor; }
-    .audio-control.is-playing .audio-bars i { animation: audioBar .8s ease-in-out infinite alternate; }
-    .audio-control.is-playing .audio-bars i:nth-child(2) { animation-delay: -.4s; }
-    .audio-control.is-playing .audio-bars i:nth-child(3) { animation-delay: -.65s; }
-    @keyframes audioBar { from { height: 4px; } to { height: 13px; } }
     .storm-toggle { position: relative; overflow: hidden; }
     .storm-toggle.is-active { border-color: rgba(251,191,36,.65); background: rgba(245,158,11,.24); color: #fde68a; box-shadow: 0 0 22px rgba(245,158,11,.18); }
     .storm-toggle.is-active .storm-icon { animation: stormIcon 1.2s ease-in-out infinite; }
@@ -223,9 +238,19 @@
   </style>
 </head>
 <body class="page-bg min-h-screen antialiased selection:bg-amber-400 selection:text-stone-950">
+  <div id="pageLoader" class="page-loader" role="status" aria-live="polite">
+    <div class="loader-stars" aria-hidden="true"></div>
+    <div class="loader-content">
+      <div class="loader-seal" aria-hidden="true"><span>𓂀</span><span class="loader-glyph g1">𓆣</span><span class="loader-glyph g2">𓅃</span><span class="loader-glyph g3">𓉐</span><span class="loader-glyph g4">𓁹</span></div>
+      <div class="loader-kicker">The desert night awaits</div>
+      <div class="loader-title">තාල තරංග</div>
+      <div class="loader-copy">වැලි කතරේ සංගීත රැයක් වෙත පිවිසෙමින්...</div>
+      <div class="loader-progress" aria-hidden="true"><span></span></div>
+      <small class="loader-foot">𓋹  M I Y U R U  G E E  S A N D H A W A  𓋹</small>
+    </div>
+  </div>
   <a href="#registration" class="sr-only-focusable fixed left-4 top-4 z-[100] rounded-lg bg-amber-400 px-4 py-2 font-bold text-stone-950">ප්‍රධාන අන්තර්ගතයට යන්න</a>
 
-  <audio id="egyptianAudio" src="egyptian-pyramid-ambient.mp3" loop preload="metadata"></audio>
   <div id="sandstormLayer" class="sandstorm-layer is-active" aria-hidden="true"></div>
 
   <header class="sticky top-0 z-40 border-b border-amber-500/15 bg-stone-950/75 px-4 py-3 backdrop-blur-xl">
@@ -238,9 +263,6 @@
         </span>
       </a>
       <div class="flex items-center gap-2">
-        <button id="musicToggle" onclick="toggleMusic()" class="audio-control group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20" type="button" aria-pressed="false" aria-label="පසුබිම් සංගීතය ක්‍රියාත්මක කරන්න">
-          <span class="audio-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="musicLabel">Music off</span>
-        </button>
         <button onclick="openSelectedSongsModal()" class="group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20 sm:px-4 sm:text-sm" type="button">
           <span class="text-base transition group-hover:rotate-6">♬</span><span>ගීත ලැයිස්තුව</span>
         </button>
@@ -265,8 +287,8 @@
       <div class="mb-2 text-xs font-bold uppercase tracking-[.45em] text-amber-400/70">Under the desert moon</div>
       <h1 class="display-font gold-text text-4xl font-black leading-tight tracking-tight drop-shadow-[0_0_26px_rgba(245,158,11,.25)] sm:text-6xl">තාල තරංග</h1>
       <div class="mx-auto mt-4 flex max-w-xs items-center gap-3 text-amber-400/50"><span class="h-px flex-1 bg-gradient-to-r from-transparent to-amber-400/50"></span><span class="text-xl">𓂀</span><span class="h-px flex-1 bg-gradient-to-l from-transparent to-amber-400/50"></span></div>
+      <p class="mt-4 text-base font-bold tracking-wide text-amber-200/90 sm:text-lg">තරංග රටාවක බැඳි තාල රසවින්දනය</p>
       <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-amber-50/65 sm:text-base sm:leading-8">ඔබේ හඬ, ඔබේ ගීතය, ඔබේ සැඳෑව. තරඟයක් නොවන මෙම මිත්‍රශීලී ගායන අත්දැකීමට එක්වීමට පහත පෝරමය පුරවන්න.</p>
-      <div class="mt-7 flex flex-wrap justify-center gap-3 text-xs text-stone-300/75"><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● සරල ලියාපදිංචිය</span><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● Karaoke preview</span><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● ක්ෂණික තහවුරු කිරීම</span></div>
     </section>
 
     <section id="registration" class="glass relative z-10 mx-auto mt-10 max-w-3xl overflow-hidden rounded-[28px] border-amber-400/30 p-5 shadow-[0_0_55px_rgba(245,158,11,.09)] sm:mt-12 sm:p-9">
@@ -300,8 +322,8 @@
           <div class="relative"><input type="url" id="youtubeUrl" required inputmode="url" placeholder="https://www.youtube.com/watch?v=..." oninput="handleYouTubeInput(this.value)" class="field px-4 py-3.5 pr-12 text-sm"><span id="urlCheck" class="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 text-emerald-400">✓</span></div>
           <p class="mt-2 text-xs leading-5 text-stone-500">ඔබ ගායනා කිරීමට තෝරාගත් නිවැරදි Karaoke වාදනයේ YouTube link එක ඇතුළත් කරන්න.</p>
           <div id="ytPreviewContainer" class="relative mx-auto mt-4 hidden max-w-xl overflow-hidden rounded-2xl border border-amber-400/25 bg-black shadow-2xl shadow-black/30">
-            <div class="flex items-center justify-between border-b border-white/10 bg-white/[.04] px-4 py-2 text-xs text-stone-300"><span>▶ Karaoke preview</span><button type="button" onclick="hideYouTubePreview()" class="text-stone-500 transition hover:text-white" aria-label="Preview වසා දමන්න">වසා දමන්න ×</button></div>
-            <div class="aspect-video"><iframe id="ytFrame" class="h-full w-full" src="" title="YouTube karaoke preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+            <div class="flex items-center justify-between border-b border-white/10 bg-white/[.04] px-4 py-2 text-xs text-stone-300"><span>▶ Video preview</span><button type="button" onclick="hideYouTubePreview()" class="text-stone-500 transition hover:text-white" aria-label="Preview වසා දමන්න">වසා දමන්න ×</button></div>
+            <div class="aspect-video"><iframe id="ytFrame" class="h-full w-full" src="" title="YouTube video preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           </div>
         </div>
 
@@ -373,32 +395,6 @@
           oscillator.stop(now + index * 0.09 + (type === 'success' ? 0.38 : 0.14));
         });
       } catch (_) { /* Audio is an enhancement; the page remains fully usable without it. */ }
-    }
-
-    async function toggleMusic() {
-      const audio = $('egyptianAudio');
-      const button = $('musicToggle');
-      const label = $('musicLabel');
-      if (audio.paused) {
-        try {
-          await audio.play();
-          audio.volume = 0.28;
-          button.classList.add('is-playing');
-          button.setAttribute('aria-pressed', 'true');
-          button.setAttribute('aria-label', 'පසුබිම් සංගීතය නවත්වන්න');
-          label.textContent = 'Music on';
-          playUiSound('toggle');
-        } catch (_) {
-          label.textContent = 'Tap to play';
-        }
-      } else {
-        audio.pause();
-        button.classList.remove('is-playing');
-        button.setAttribute('aria-pressed', 'false');
-        button.setAttribute('aria-label', 'පසුබිම් සංගීතය ක්‍රියාත්මක කරන්න');
-        label.textContent = 'Music off';
-        playUiSound('toggle');
-      }
     }
 
     function createSandstormParticles() {
@@ -499,8 +495,19 @@
       } catch { body.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-red-300">ලැයිස්තුව ලබාගැනීමේදී ගැටලුවක් මතු විය. නැවත උත්සාහ කරන්න.</td></tr>'; }
       finally { icon.classList.remove('spin'); }
     }
+    function dismissPageLoader() {
+      const loader = $('pageLoader');
+      if (!loader) return;
+      const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 350 : 1250;
+      window.setTimeout(() => {
+        loader.classList.add('is-hidden');
+        window.setTimeout(() => loader.remove(), 850);
+      }, delay);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', dismissPageLoader, { once: true });
+    else dismissPageLoader();
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePassModal(); closeSelectedSongsModal(); } });
-    document.addEventListener('click', e => { if (e.target.closest('button') && !e.target.closest('#musicToggle')) playUiSound('click'); });
+    document.addEventListener('click', e => { if (e.target.closest('button')) playUiSound('click'); });
     createSandstormParticles();
     document.addEventListener('pointermove', e => {
       const scene = document.querySelector('.egypt-scene');
