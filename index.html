@@ -2,491 +2,377 @@
 <html lang="si">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#081626">
-  <meta name="description" content="තාල තරංග – මියුරු ගී සැඳෑව සඳහා ගායක ගායිකා ලියාපදිංචිය සහ ගීත පෙළගැස්ම.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d08">
+  <meta name="description" content="තාල තරංග මියුරු ගී සැඳෑව සඳහා ගායක ගායිකා ලියාපදිංචිය.">
   <title>තාල තරංග | මියුරු ගී සැඳෑව</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{color-scheme:dark;--bg:#071321;--panel:#0d2030;--panel2:#081725;--gold:#d9a84e;--gold2:#ffe3a0;--muted:#a9b9c8;--line:rgba(230,184,91,.28);--green:#7ce0b0;--red:#ff9a9a;--lapis:#1b4d70;--sand:#d6b477}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;color:#f8f4ea;font-family:"Noto Sans Sinhala",sans-serif;background:radial-gradient(ellipse at 50% 0%,#174064 0,transparent 44%),radial-gradient(ellipse at 92% 18%,#6e4a1b55 0,transparent 32%),linear-gradient(180deg,#071321 0%,#0a1a29 58%,#101a24 100%);background-attachment:fixed} body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;z-index:-1;background-image:repeating-linear-gradient(0deg,transparent 0 39px,#d6b47722 40px),repeating-linear-gradient(90deg,transparent 0 39px,#d6b47716 40px)}
-    button,input{font:inherit}
-    button{cursor:pointer}
-    a{color:inherit}
-    .wrap{width:min(1040px,calc(100% - 32px));margin:auto}
-    header{position:sticky;top:0;z-index:10;background:rgba(5,17,29,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 8px 32px #0003}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:13px;min-width:0}
-    .brand-mark{display:grid;place-items:center;width:44px;height:44px;border:1px solid #d9a84e;border-radius:12px;color:var(--gold2);font-size:25px;background:linear-gradient(145deg,#17486b,#091726);box-shadow:inset 0 0 0 3px #d9a84e16,0 0 25px #d9a84e14}
-    .brand-title{font:800 16px "Cinzel",serif;letter-spacing:.12em;color:var(--gold2)}
-    .brand-sub{font-size:12px;color:var(--muted);margin-top:3px}
-    .btn{border:1px solid var(--line);border-radius:12px;padding:11px 15px;color:var(--gold2);background:#1b1b23;transition:.2s}
-    .btn:hover{transform:translateY(-1px);border-color:#d9ad58;background:#27232a}
-    .btn:focus-visible,input:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
-    .hero{text-align:center;padding:52px 0 36px;position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid #d9a84e26;margin-bottom:28px}.hero:before{content:"";position:absolute;z-index:-2;left:0;right:0;bottom:0;height:185px;background:linear-gradient(180deg,transparent,#b17c3520 70%,#d2a45a20);clip-path:polygon(0 100%,0 82%,10% 74%,20% 88%,30% 67%,43% 85%,56% 72%,68% 87%,80% 65%,91% 82%,100% 74%,100% 100%)}.pyramid-scene{position:absolute;z-index:-1;left:50%;bottom:-2px;transform:translateX(-50%);width:min(560px,100%);height:155px;opacity:.56;pointer-events:none}.pyramid{position:absolute;bottom:0;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(105deg,#d8b16c 0 49%,#7c572c 50% 100%);filter:drop-shadow(0 0 18px #d9a84e22)}.pyramid.one{width:180px;height:130px;left:calc(50% - 90px)}.pyramid.two{width:122px;height:88px;left:calc(50% - 185px);opacity:.72}.pyramid.three{width:112px;height:80px;left:calc(50% + 82px);opacity:.62}.egypt-sun{position:absolute;left:50%;top:6px;transform:translateX(-50%);width:48px;height:48px;border-radius:50%;background:#e6b85b66;box-shadow:0 0 42px #e6b85b44}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:linear-gradient(90deg,#16436588,#6b4c1c55);color:var(--gold2);font-size:12px;box-shadow:0 0 24px #0002}
-    h1{font-size:clamp(36px,7vw,64px);line-height:1.2;margin:18px 0 12px;color:var(--gold2);letter-spacing:.01em;text-shadow:0 2px 0 #553a17,0 0 35px #d9a84e35}.year-theme{display:block;margin-top:12px;color:#d8c29a;font:600 10px "Cinzel",serif;letter-spacing:.24em;text-transform:uppercase}
-    .hero p{max-width:680px;margin:0 auto;color:#c4c6cf;line-height:1.9;font-size:14px}
-    .layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:20px;align-items:start;padding-bottom:54px}
-    .panel{position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(14,34,50,.97),rgba(7,20,32,.98));border:1px solid var(--line);border-radius:20px;padding:clamp(20px,4vw,34px);box-shadow:0 24px 75px #0005,inset 0 1px #ffffff08}.panel:before{content:"";position:absolute;top:0;left:28px;right:28px;height:2px;background:linear-gradient(90deg,transparent,#e6b85b,transparent)}
-    .panel h2{font-size:20px;margin:0 0 7px;color:var(--gold2)}
-    .panel-intro{font-size:13px;color:var(--muted);line-height:1.8;margin:0 0 24px}
-    .field{margin-bottom:20px}
-    label{display:block;font-weight:700;font-size:13px;color:#f2d79c;margin-bottom:9px}
-    .required{color:var(--red)}
-    input{display:block;width:100%;padding:14px 15px;border:1px solid #344b5b;border-radius:10px;background:var(--panel2);color:#fff;transition:border-color .2s,box-shadow .2s}
-    input::placeholder{color:#737b8b}
-    input:focus{outline:none;border-color:#d7ac5c;box-shadow:0 0 0 3px #d7ac5c20}
-    .hint{font-size:11px;color:#9299a8;line-height:1.7;margin:7px 0 0}
-    .preview{margin-top:14px;aspect-ratio:16/9;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#05060a}
-    .preview iframe{width:100%;height:100%;border:0}
-    .submit{width:100%;padding:15px;border:1px solid #f9d88c;border-radius:10px;background:linear-gradient(105deg,#b7832f,#ffe4a1 48%,#d7a13f);color:#1d180e;font-weight:800;letter-spacing:.02em;box-shadow:0 10px 30px #d99f3e22}
-    .submit:hover{filter:brightness(1.06)}
-    .submit:disabled{opacity:.65;cursor:wait}
-    .status{margin-top:16px;padding:13px 15px;border-radius:12px;font-size:13px;line-height:1.7}
-    .status[hidden]{display:none}
-    .status.info{color:#ffdf96;background:#d99f3e12;border:1px solid var(--line)}
-    .status.success{color:var(--green);background:#7ce0b010;border:1px solid #7ce0b044}
-    .status.error{color:var(--red);background:#ff737310;border:1px solid #ff737344}
-    .side{display:grid;gap:15px}
-    .mini{padding:20px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#102a3dbd,#0a1927e8);box-shadow:0 12px 30px #0002}
-    .mini .number{font:700 24px "Cinzel",serif;color:var(--gold2)}
-    .mini h3{font-size:14px;margin:8px 0;color:#f2d79c}
-    .mini p{font-size:12px;line-height:1.8;color:var(--muted);margin:0}
-    .note{font-size:11px;color:#8f96a5;line-height:1.8;margin-top:16px}
-    footer{text-align:center;color:#9aaaba;font-size:11px;padding:24px 16px 28px;border-top:1px solid #d9a84e26;letter-spacing:.08em}
-    .modal{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:16px;background:#020308d9;backdrop-filter:blur(12px)}
-    .modal[hidden]{display:none}
-    .modal-card{width:min(760px,100%);max-height:86vh;display:flex;flex-direction:column;background:#0d2030;border:1px solid #b88b3d88;border-radius:22px;box-shadow:0 30px 100px #0009;overflow:hidden}
-    .modal-head,.modal-foot{padding:17px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line)}
-    .modal-head h2{font-size:17px;color:var(--gold2);margin:0}
-    .modal-foot{border-top:1px solid var(--line);border-bottom:0;justify-content:flex-end}
-    .modal-body{overflow:auto;padding:18px 20px}
-    .close{font-size:25px;line-height:1;border:0;background:transparent;color:#c4c6cf}
-    .table-wrap{overflow:auto;border:1px solid #2c3040;border-radius:12px}
-    table{width:100%;border-collapse:collapse;font-size:12px;min-width:510px}
-    th,td{text-align:left;padding:12px;border-bottom:1px solid #292d3a;vertical-align:top}
-    th{position:sticky;top:0;background:#14354b;color:var(--gold2)}
-    td{color:#e9eaf0}
-    .play{display:inline-block;padding:6px 9px;border:1px solid #ff696944;border-radius:8px;text-decoration:none;color:#ffaaaa;background:#ff696910}
-    .empty{text-align:center;color:var(--muted);padding:25px}
-    .pass{width:min(430px,100%);padding:24px}
-    .pass-code{font:700 18px "Cinzel",serif;color:var(--gold2)}
-    .pass-details{margin:20px 0;border:1px solid #333747;border-radius:13px;padding:15px;text-align:left;font-size:12px;line-height:1.9;overflow-wrap:anywhere}
-    .pass-details b{color:#e8c77e}
-    .pass-actions{display:flex;gap:10px}
-    .pass-actions .btn{flex:1}
-    @media(max-width:760px){.layout{grid-template-columns:1fr}.side{grid-template-columns:repeat(3,minmax(0,1fr))}.mini{padding:14px}.mini .number{font-size:19px}.mini p{font-size:11px}.hero{padding-top:42px}}
-    @media(max-width:520px){.nav{min-height:68px}.brand-title{font-size:12px}.brand-mark{width:38px;height:38px}.nav .btn{padding:9px 10px;font-size:11px}.brand-sub{font-size:10px}.side{grid-template-columns:1fr}.hero p{font-size:13px}.panel{border-radius:18px}}
-    @media print{body{background:#fff;color:#111}.no-print,header,.hero,.layout>*:not(.panel){display:none!important}.modal{position:static;background:#fff;padding:0}.modal-card{box-shadow:none;background:#fff;color:#111;border:1px solid #999}.modal-head,.modal-foot{display:none}.pass-details{color:#111;border-color:#bbb}.pass-details b,.pass-code{color:#72500e}}
-    /* Mobile-first refinements: comfortable touch targets, no sideways page scroll,
-       safe-area-aware dialogs, and readable form controls on small screens. */
-    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-    body{overflow-x:hidden}
-    input,button{touch-action:manipulation}
-    input{min-height:48px;font-size:16px}
-    button,.btn,.submit{min-height:44px}
-    .wrap{width:min(1040px,calc(100% - 32px))}
-    .preview{width:100%}
-    .preview iframe{display:block}
-    .table-wrap{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
-    .modal{padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom));}
-    .modal-card{max-height:calc(100dvh - 24px);max-height:calc(100vh - 24px);}
-    .modal-body{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-    @media(max-width:760px){
-      .wrap{width:min(100% - 28px,640px)}
-      .nav{gap:10px;min-height:66px}
-      .brand{gap:9px}
-      .brand-title{letter-spacing:.07em}
-      .layout{grid-template-columns:minmax(0,1fr);gap:16px}
-      .panel{padding:clamp(18px,4.5vw,28px)}
-      .side{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-      .mini{padding:13px 11px}
-      .mini .number{font-size:18px}
-      .mini h3{font-size:12px;line-height:1.55}
-      .mini p{font-size:11px;line-height:1.7}
-      .side>.note{grid-column:1/-1}
-      .hero{padding:36px 0 32px;margin-bottom:20px}
-      .hero p{max-width:560px}
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans Sinhala', sans-serif;
+      color: #fff7ed;
+      background: #080604;
+      overflow-x: hidden;
     }
-    @media(max-width:520px){
-      .wrap{width:calc(100% - 24px)}
-      header{position:sticky}
-      .nav{min-height:62px;gap:8px}
-      .brand{flex:1;min-width:0}
-      .brand-mark{width:35px;height:35px;flex:0 0 35px;font-size:21px;border-radius:10px}
-      .brand-title{font-size:clamp(10px,3vw,12px);letter-spacing:.045em;white-space:nowrap}
-      .brand-sub{font-size:10px;line-height:1.35}
-      .nav .btn{flex:0 0 auto;max-width:44%;padding:9px 10px;font-size:11px;line-height:1.4;white-space:normal}
-      .hero{padding:30px 0 26px;margin-bottom:16px}
-      .eyebrow{max-width:100%;padding:7px 10px;gap:6px;font-size:10px;line-height:1.6;flex-wrap:wrap;justify-content:center}
-      h1{font-size:clamp(34px,10vw,48px);margin:14px 0 9px}
-      .year-theme{font-size:9px;line-height:1.8;letter-spacing:.14em;padding:0 8px}
-      .hero p{font-size:13px;line-height:1.85;padding:0 3px}
-      .pyramid-scene{height:125px;width:100%;opacity:.42}
-      .pyramid.one{width:145px;height:104px;left:calc(50% - 72px)}
-      .pyramid.two{width:94px;height:68px;left:calc(50% - 145px)}
-      .pyramid.three{width:88px;height:63px;left:calc(50% + 58px)}
-      .egypt-sun{width:38px;height:38px}
-      .layout{padding-bottom:32px;gap:14px}
-      .panel{padding:18px 15px;border-radius:16px}
-      .panel h2{font-size:18px;line-height:1.6}
-      .panel-intro{font-size:12px;line-height:1.8;margin-bottom:20px}
-      .field{margin-bottom:18px}
-      label{font-size:12px;line-height:1.7}
-      input{padding:13px 12px;border-radius:10px}
-      .hint{font-size:11px;line-height:1.75}
-      .submit{padding:14px 12px;font-size:14px}
-      .side{grid-template-columns:1fr;gap:9px}
-      .mini{display:grid;grid-template-columns:38px minmax(0,1fr);column-gap:10px;align-items:start;padding:13px}
-      .mini .number{grid-row:span 2;font-size:17px;padding-top:1px}
-      .mini h3{margin:0 0 3px;font-size:13px}
-      .mini p{grid-column:2;font-size:12px;margin:0}
-      .side>.note{margin:4px 2px 0}
-      footer{font-size:10px;line-height:1.8;padding:20px 12px calc(20px + env(safe-area-inset-bottom))}
-      .modal{align-items:flex-end;padding:8px 8px max(8px,env(safe-area-inset-bottom))}
-      .modal-card{width:100%;max-height:92dvh;border-radius:18px 18px 14px 14px}
-      .modal-head,.modal-foot{padding:13px 14px;gap:8px}
-      .modal-head h2{font-size:15px;line-height:1.6}
-      .modal-body{padding:14px}
-      .pass{padding:0}
-      .pass-actions{flex-direction:column}
-      .pass-actions .btn{width:100%}
-      .table-wrap{border-radius:9px}
-      table{font-size:11px;min-width:470px}
-      th,td{padding:10px 9px}
+    button, input { font: inherit; }
+    .display-font { font-family: 'Cinzel', serif; }
+    .page-bg {
+      background:
+        radial-gradient(circle at 50% -10%, rgba(245,158,11,.20), transparent 34rem),
+        radial-gradient(circle at 8% 55%, rgba(180,83,9,.10), transparent 22rem),
+        linear-gradient(180deg, #1a1008 0%, #0d0906 38%, #080604 100%);
     }
-    @media(max-width:360px){
-      .wrap{width:calc(100% - 18px)}
-      .brand-mark{display:none}
-      .brand-title{font-size:10px}
-      .nav .btn{font-size:10px;padding:8px}
-      .eyebrow{font-size:9px}
-      .panel{padding:16px 12px}
-      .modal-head,.modal-foot{padding:12px}
-      .modal-body{padding:12px}
+    .page-bg::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      background-image: linear-gradient(135deg, rgba(245,158,11,.07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
     }
-    @media(hover:none){.btn:hover{transform:none}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    .egypt-scene {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 720px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    }
+    .egypt-scene::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 230px;
+      background: linear-gradient(to top, rgba(5,3,2,.96), transparent);
+    }
+    .moon {
+      position: absolute;
+      top: 58px;
+      right: 11%;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: #fde68a;
+      box-shadow: 0 0 22px rgba(253,230,138,.7), 0 0 90px rgba(245,158,11,.24);
+      animation: moonFloat 7s ease-in-out infinite;
+    }
+    .moon::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 1px solid rgba(253,230,138,.35);
+      border-radius: 50%;
+      animation: pulseRing 3s ease-in-out infinite;
+    }
+    .stars {
+      position: absolute;
+      inset: 0;
+      opacity: .8;
+      background-image: radial-gradient(circle, #fde68a 0 1px, transparent 1.5px), radial-gradient(circle, rgba(255,255,255,.75) 0 1px, transparent 1.5px);
+      background-position: 8% 18%, 33% 31%;
+      background-size: 115px 94px, 167px 131px;
+      animation: starDrift 18s linear infinite;
+    }
+    .pyramid {
+      position: absolute;
+      bottom: 70px;
+      width: 0;
+      height: 0;
+      border-left: solid transparent;
+      border-right: solid transparent;
+      border-bottom: solid #241308;
+      filter: drop-shadow(0 0 16px rgba(245,158,11,.08));
+    }
+    .pyramid::after {
+      content: '';
+      position: absolute;
+      left: -50%;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: inherit;
+      border-right: inherit;
+      border-bottom: inherit;
+      border-bottom-color: rgba(245,158,11,.12);
+      transform: skewX(-28deg) translateX(-8%);
+      transform-origin: top;
+    }
+    .pyramid-large { left: 13%; border-left-width: 190px; border-right-width: 190px; border-bottom-width: 250px; animation: pyramidBreath 9s ease-in-out infinite; }
+    .pyramid-mid { right: 20%; bottom: 76px; border-left-width: 125px; border-right-width: 125px; border-bottom-width: 165px; opacity: .78; animation: pyramidBreath 11s ease-in-out 1s infinite reverse; }
+    .pyramid-small { left: 44%; bottom: 66px; border-left-width: 70px; border-right-width: 70px; border-bottom-width: 92px; opacity: .6; }
+    .sand-haze {
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      bottom: 38px;
+      height: 115px;
+      background: radial-gradient(ellipse at center, rgba(245,158,11,.15), transparent 68%);
+      filter: blur(12px);
+      animation: sandWave 8s ease-in-out infinite alternate;
+    }
+    .hieroglyph {
+      position: absolute;
+      color: rgba(251,191,36,.17);
+      font-family: Georgia, serif;
+      font-size: 46px;
+      letter-spacing: 14px;
+      writing-mode: vertical-rl;
+      animation: glyphFloat 6s ease-in-out infinite;
+    }
+    .glyph-left { left: 3%; top: 210px; }
+    .glyph-right { right: 3%; top: 300px; animation-delay: -2s; }
+    .sand-particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #fbbf24; opacity: .45; animation: particleRise 8s linear infinite; }
+    .particle-one { left: 18%; bottom: 90px; animation-delay: -2s; }
+    .particle-two { left: 73%; bottom: 50px; animation-delay: -5s; }
+    .particle-three { left: 56%; bottom: 160px; animation-delay: -7s; }
+    @keyframes moonFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(10px); } }
+    @keyframes pulseRing { 0%,100% { transform: scale(.95); opacity: .35; } 50% { transform: scale(1.16); opacity: .75; } }
+    @keyframes starDrift { from { transform: translateY(0); } to { transform: translateY(32px); } }
+    @keyframes pyramidBreath { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes sandWave { from { transform: translateX(-3%) scaleX(1); } to { transform: translateX(3%) scaleX(1.08); } }
+    @keyframes glyphFloat { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-13px) rotate(2deg); } }
+    @keyframes particleRise { 0% { transform: translate(0, 0) scale(.7); opacity: 0; } 15% { opacity: .55; } 100% { transform: translate(35px, -260px) scale(1.2); opacity: 0; } }
+    @media (max-width: 640px) { .moon { right: 9%; width: 64px; height: 64px; top: 38px; } .pyramid-large { left: 2%; border-left-width: 130px; border-right-width: 130px; border-bottom-width: 170px; } .pyramid-mid { right: 4%; border-left-width: 90px; border-right-width: 90px; border-bottom-width: 120px; } .hieroglyph { font-size: 32px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+    .glass {
+      background: rgba(28, 18, 10, .78);
+      border: 1px solid rgba(245,158,11,.25);
+      box-shadow: 0 24px 90px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.04);
+      backdrop-filter: blur(18px);
+    }
+    .gold-text {
+      background: linear-gradient(110deg, #fde68a 0%, #fbbf24 48%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .field {
+      width: 100%;
+      border: 1px solid rgba(245,158,11,.22);
+      border-radius: 14px;
+      background: rgba(8,6,4,.72);
+      color: #fff;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .field:hover { border-color: rgba(245,158,11,.42); }
+    .field:focus {
+      border-color: #fbbf24;
+      background: rgba(8,6,4,.92);
+      box-shadow: 0 0 0 4px rgba(245,158,11,.12);
+    }
+    .field::placeholder { color: #78716c; }
+    .field.invalid { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,.10); }
+    .field.valid { border-color: #34d399; }
+    .modal-backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(12px); }
+    .modal-panel { animation: rise .25s ease-out both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .sr-only-focusable:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media print {
+      body { background: white; color: black; }
+      body > *:not(#passModal) { display: none !important; }
+      #passModal { position: static; display: block !important; background: white; }
+      #passModal > div { color: black; border: 2px solid #b45309; box-shadow: none; margin: 2rem auto; }
+      .no-print { display: none !important; }
+    }
   </style>
 </head>
-<body>
-<header>
-  <div class="wrap nav">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true">☥</div>
-      <div><div class="brand-title">THAALA THARANGA</div><div class="brand-sub">මියුරු ගී සැඳෑව</div></div>
+<body class="page-bg min-h-screen antialiased selection:bg-amber-400 selection:text-stone-950">
+  <a href="#registration" class="sr-only-focusable fixed left-4 top-4 z-[100] rounded-lg bg-amber-400 px-4 py-2 font-bold text-stone-950">ප්‍රධාන අන්තර්ගතයට යන්න</a>
+
+  <header class="sticky top-0 z-40 border-b border-amber-500/15 bg-stone-950/75 px-4 py-3 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3" aria-label="තාල තරංග මුල් පිටුව">
+        <span class="grid h-11 w-11 place-items-center rounded-2xl border border-amber-400/30 bg-amber-400/10 text-2xl shadow-lg shadow-amber-950/20">♫</span>
+        <span>
+          <span class="display-font block text-sm font-extrabold tracking-[.18em] text-amber-300 sm:text-base">THAALA THARANGA</span>
+          <span class="block text-[11px] text-amber-100/60 sm:text-xs">මියුරු ගී සැඳෑව</span>
+        </span>
+      </a>
+      <button onclick="openSelectedSongsModal()" class="group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20 sm:px-4 sm:text-sm" type="button">
+        <span class="text-base transition group-hover:rotate-6">♬</span><span>ගීත ලැයිස්තුව</span>
+      </button>
     </div>
-    <button class="btn" type="button" id="openSongs">♫ තෝරාගත් ගීත</button>
-  </div>
-</header>
+  </header>
 
-<main class="wrap">
-  <section class="hero">
-    <div class="pyramid-scene" aria-hidden="true"><div class="egypt-sun"></div><div class="pyramid two"></div><div class="pyramid one"></div><div class="pyramid three"></div></div>
-    <div class="eyebrow"><span aria-hidden="true">✦</span> ගායක / ගායිකා ලියාපදිංචිය · SINGER REGISTRATION <span aria-hidden="true">✦</span></div>
-    <h1>තාල තරංග</h1>
-    <span class="year-theme">AN EGYPTIAN ROYAL MUSICAL EVENING · 2026</span>
-    <p>සංගීතයෙන් හදවත් යා කරන සුන්දර මියුරු ගී සැඳෑවක්. මෙය තරඟයක් නොව, මිතුරන් සමඟ ගීත රසවිඳින සුහද හමුවකි. ඔබ ගායනා කිරීමට කැමති ගීතය සහ නිවැරදි Karaoke / Minus-One වාදනය ලියාපදිංචි කරන්න.</p>
-  </section>
+  <main id="top" class="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pt-16">
+    <div class="egypt-scene" aria-hidden="true">
+      <div class="stars"></div>
+      <div class="moon"></div>
+      <div class="hieroglyph glyph-left">𓂀 𓁹 𓆣</div>
+      <div class="hieroglyph glyph-right">𓉐 𓅃 𓂀</div>
+      <div class="pyramid pyramid-large"></div>
+      <div class="pyramid pyramid-mid"></div>
+      <div class="pyramid pyramid-small"></div>
+      <div class="sand-haze"></div>
+      <span class="sand-particle particle-one"></span><span class="sand-particle particle-two"></span><span class="sand-particle particle-three"></span>
+    </div>
+    <section class="relative z-10 mx-auto max-w-3xl text-center">
+      <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/10 px-4 py-2 text-[11px] font-bold tracking-wide text-amber-200 sm:text-sm"><span class="text-amber-400">✦</span> ගායක / ගායිකා ලියාපදිංචිය <span class="hidden text-amber-100/50 sm:inline">• Singer Registration</span><span class="text-amber-400">✦</span></div>
+      <div class="mb-2 text-xs font-bold uppercase tracking-[.45em] text-amber-400/70">Under the desert moon</div>
+      <h1 class="display-font gold-text text-4xl font-black leading-tight tracking-tight drop-shadow-[0_0_26px_rgba(245,158,11,.25)] sm:text-6xl">තාල තරංග</h1>
+      <div class="mx-auto mt-4 flex max-w-xs items-center gap-3 text-amber-400/50"><span class="h-px flex-1 bg-gradient-to-r from-transparent to-amber-400/50"></span><span class="text-xl">𓂀</span><span class="h-px flex-1 bg-gradient-to-l from-transparent to-amber-400/50"></span></div>
+      <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-amber-50/65 sm:text-base sm:leading-8">ඔබේ හඬ, ඔබේ ගීතය, ඔබේ සැඳෑව. තරඟයක් නොවන මෙම මිත්‍රශීලී ගායන අත්දැකීමට එක්වීමට පහත පෝරමය පුරවන්න.</p>
+      <div class="mt-7 flex flex-wrap justify-center gap-3 text-xs text-stone-300/75"><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● සරල ලියාපදිංචිය</span><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● Karaoke preview</span><span class="rounded-full border border-white/10 bg-white/[.04] px-3 py-1.5">● ක්ෂණික තහවුරු කිරීම</span></div>
+    </section>
 
-  <section class="layout">
-    <div class="panel">
-      <h2>ඔබගේ ගායනය ලියාපදිංචි කරන්න</h2>
-      <p class="panel-intro">කරුණාකර පහත තොරතුරු නිවැරදිව ලබා දෙන්න. * ලකුණ ඇති සියලුම තොරතුරු අවශ්‍ය වේ.</p>
-      <form id="singerForm">
-        <div class="field">
-          <label for="singerName">01 · ඔබගේ නම (Singer Name) <span class="required">*</span></label>
-          <input id="singerName" name="name" autocomplete="name" maxlength="100" required placeholder="උදා: කසුන් පෙරේරා">
+    <section id="registration" class="glass relative z-10 mx-auto mt-10 max-w-3xl overflow-hidden rounded-[28px] border-amber-400/30 p-5 shadow-[0_0_55px_rgba(245,158,11,.09)] sm:mt-12 sm:p-9">
+      <div class="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl"></div>
+      <div class="relative mb-8 flex items-start justify-between gap-4 border-b border-amber-500/15 pb-6">
+        <div><p class="mb-1 text-xs font-bold uppercase tracking-[.2em] text-amber-400">Your stage starts here</p><h2 class="text-xl font-extrabold text-white sm:text-2xl">ලියාපදිංචි වන්න</h2></div>
+        <div class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-amber-400/20 bg-amber-400/10 text-2xl">🎙️</div>
+      </div>
+
+      <form id="singerForm" onsubmit="handleFormSubmit(event)" class="relative space-y-6" novalidate>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label for="singerName" class="mb-2 block text-sm font-bold text-amber-200">1. ඔබගේ නම <span class="font-normal text-stone-400">(Singer Name)</span> <span class="text-red-400" aria-hidden="true">*</span></label>
+            <input type="text" id="singerName" required autocomplete="name" placeholder="උදා: කසුන් පෙරේරා" class="field px-4 py-3.5 text-sm" aria-describedby="nameHint">
+            <p id="nameHint" class="mt-2 text-xs text-stone-500">ඔබව හඳුනාගැනීමට භාවිතා කරන නම.</p>
+          </div>
+          <div>
+            <label for="whatsappNum" class="mb-2 block text-sm font-bold text-amber-200">2. WhatsApp අංකය <span class="font-normal text-stone-400">(WhatsApp)</span> <span class="text-red-400" aria-hidden="true">*</span></label>
+            <input type="tel" id="whatsappNum" required autocomplete="tel" inputmode="tel" placeholder="07xxxxxxxx හෝ +947xxxxxxxx" class="field px-4 py-3.5 text-sm">
+            <p class="mt-2 text-xs text-stone-500">තහවුරු කිරීම සඳහා පමණි.</p>
+          </div>
         </div>
-        <div class="field">
-          <label for="songName">02 · ගීතයේ නම සහ මුල් ගායකයා <span class="required">*</span></label>
-          <input id="songName" name="song" maxlength="180" required placeholder="උදා: සඳ තරු නිහඬයි – මිල්ටන් මල්ලවාරච්චි">
+
+        <div>
+          <label for="songName" class="mb-2 block text-sm font-bold text-amber-200">3. ගායනා කරන ගීතය <span class="font-normal text-stone-400">(Song & Original Artist)</span> <span class="text-red-400" aria-hidden="true">*</span></label>
+          <input type="text" id="songName" required placeholder="උදා: සඳ තරු නිහඬයි — මිල්ටන් මල්ලවාරච්චි" class="field px-4 py-3.5 text-sm">
         </div>
-        <div class="field">
-          <label for="youtubeUrl">03 · YouTube Karaoke / Minus-One Link <span class="required">*</span></label>
-          <input id="youtubeUrl" name="youtube" type="url" inputmode="url" required placeholder="https://www.youtube.com/watch?v=..." aria-describedby="youtubeHint">
-          <p class="hint" id="youtubeHint">ඔබ ගායනා කරන ගීතයට ගැළපෙන Karaoke වාදනයේ YouTube සබැඳිය ලබා දෙන්න.</p>
-          <div id="ytPreviewContainer" class="preview" hidden><iframe id="ytFrame" title="Karaoke video preview" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+        <div>
+          <div class="mb-2 flex items-end justify-between gap-3"><label for="youtubeUrl" class="block text-sm font-bold text-amber-200">4. YouTube Karaoke Link <span class="font-normal text-stone-400">(Minus-One)</span> <span class="text-red-400" aria-hidden="true">*</span></label><span class="hidden text-[11px] text-emerald-300 sm:block">YouTube link only</span></div>
+          <div class="relative"><input type="url" id="youtubeUrl" required inputmode="url" placeholder="https://www.youtube.com/watch?v=..." oninput="handleYouTubeInput(this.value)" class="field px-4 py-3.5 pr-12 text-sm"><span id="urlCheck" class="pointer-events-none absolute right-4 top-1/2 hidden -translate-y-1/2 text-emerald-400">✓</span></div>
+          <p class="mt-2 text-xs leading-5 text-stone-500">ඔබ ගායනා කිරීමට තෝරාගත් නිවැරදි Karaoke වාදනයේ YouTube link එක ඇතුළත් කරන්න.</p>
+          <div id="ytPreviewContainer" class="relative mx-auto mt-4 hidden max-w-xl overflow-hidden rounded-2xl border border-amber-400/25 bg-black shadow-2xl shadow-black/30">
+            <div class="flex items-center justify-between border-b border-white/10 bg-white/[.04] px-4 py-2 text-xs text-stone-300"><span>▶ Karaoke preview</span><button type="button" onclick="hideYouTubePreview()" class="text-stone-500 transition hover:text-white" aria-label="Preview වසා දමන්න">වසා දමන්න ×</button></div>
+            <div class="aspect-video"><iframe id="ytFrame" class="h-full w-full" src="" title="YouTube karaoke preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          </div>
         </div>
-        <div class="field">
-          <label for="whatsappNum">04 · WhatsApp අංකය <span class="required">*</span></label>
-          <input id="whatsappNum" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" required pattern="[+0-9() \-]{9,20}" placeholder="07xxxxxxxx හෝ +947xxxxxxxx" aria-describedby="phoneHint">
-          <p class="hint" id="phoneHint">ලියාපදිංචිය පිළිබඳ අවශ්‍ය සම්බන්ධීකරණ කටයුතු සඳහා පමණක් භාවිතා කරනු ඇත.</p>
-        </div>
-        <button class="submit" id="submitBtn" type="submit">ලියාපදිංචි වන්න <span aria-hidden="true">→</span></button>
-        <div id="statusAlert" class="status" role="status" aria-live="polite" hidden></div>
+
+        <div id="statusAlert" class="hidden rounded-2xl p-4 text-sm font-medium" role="status" aria-live="polite"></div>
+        <button type="submit" id="submitBtn" class="group flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 py-4 text-base font-black text-stone-950 shadow-xl shadow-amber-950/30 transition hover:-translate-y-0.5 hover:from-amber-400 hover:to-yellow-300 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60">
+          <span>✨ ලියාපදිංචි වන්න</span><span class="font-normal opacity-70">(Register for Show)</span><span class="transition-transform group-hover:translate-x-1">→</span>
+        </button>
+        <p class="text-center text-[11px] leading-5 text-stone-500">ලියාපදිංචි කිරීමෙන් ඔබගේ නම, ගීතය සහ සම්බන්ධතා තොරතුරු සංවිධායක මණ්ඩලය සමඟ බෙදාගැනීමට එකඟ වේ.</p>
       </form>
-      <p class="note">සටහන: ලියාපදිංචි වීමෙන් පසු ඔබගේ ගීතය සංවිධායක මණ්ඩලය විසින් තහවුරු කරනු ඇත.</p>
-    </div>
+    </section>
 
-    <aside class="side" aria-label="Registration information">
-      <div class="mini"><div class="number">01</div><h3>ඔබේ ගීතය තෝරන්න</h3><p>ගායනා කිරීමට කැමති ගීතය සහ මුල් ගායකයා සඳහන් කරන්න.</p></div>
-      <div class="mini"><div class="number">02</div><h3>Karaoke එක පරීක්ෂා කරන්න</h3><p>නිවැරදි තාලය සහිත Minus-One සබැඳියක් ලබා දෙන්න.</p></div>
-      <div class="mini"><div class="number">03</div><h3>ලියාපදිංචිය යොමු කරන්න</h3><p>ඔබගේ සම්බන්ධතා තොරතුරු සමඟ පෝරමය සම්පූර්ණ කරන්න.</p></div>
-      <p class="note">සබැඳි ලියාපදිංචිය සහ ගීත ලැයිස්තුව Google Apps Script සේවාවට සම්බන්ධ කර ඇත.</p>
-    </aside>
-  </section>
-</main>
-<footer>THAALA THARANGA · මියුරු ගී සැඳෑව</footer>
+    <p class="mt-8 text-center text-xs text-stone-600">ඔබගේ තොරතුරු ආරක්ෂිතව සංවිධායක මණ්ඩලය වෙත පමණක් යොමු කෙරේ.</p>
+  </main>
 
-<div id="passModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="passTitle" hidden>
-  <div class="modal-card pass">
-    <div class="modal-head"><h2 id="passTitle">ලියාපදිංචි තොරතුරු</h2><button class="close" type="button" data-close="passModal" aria-label="Close">×</button></div>
-    <div class="modal-body">
-      <p style="color:var(--green);font-weight:700">ඔබගේ ලියාපදිංචි ඉල්ලීම යොමු කර ඇත.</p>
-      <p class="hint">පහත විස්තරය සුරක්ෂිත කරගන්න. සම්බන්ධතාව තහවුරු කළ පසු පමණක් ලියාපදිංචිය අවසන් වේ.</p>
-      <div class="pass-details">
-        <div><b>Reference Code:</b> <span id="modalCode" class="pass-code">TT-000000</span></div>
-        <div><b>ගායකයා / ගායිකාව:</b> <span id="modalName">—</span></div>
-        <div><b>ගීතය:</b> <span id="modalSong">—</span></div>
-        <div><b>WhatsApp:</b> <span id="modalWhatsapp">—</span></div>
+  <div id="passModal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="passTitle">
+    <div class="modal-panel glass w-full max-w-md rounded-[28px] p-6 text-center sm:p-8">
+      <div class="mx-auto grid h-16 w-16 place-items-center rounded-3xl border border-amber-400/30 bg-amber-400/10 text-3xl">👑</div>
+      <h3 id="passTitle" class="mt-5 text-2xl font-black text-amber-300">ලියාපදිංචිය සාර්ථකයි!</h3>
+      <p class="mt-2 text-sm leading-6 text-stone-300">ඔබගේ ගීතය “තාල තරංග” සංවිධායක මණ්ඩලය වෙත යොමු විය.</p>
+      <div class="mt-6 space-y-3 rounded-2xl border border-amber-500/15 bg-stone-950/70 p-4 text-left text-sm">
+        <div class="flex justify-between gap-4 border-b border-white/10 pb-3"><span class="text-stone-500">Entry code</span><strong id="modalCode" class="font-mono text-amber-300">#PYR-0000</strong></div>
+        <div class="flex justify-between gap-4 border-b border-white/10 pb-3"><span class="text-stone-500">ගායකයා</span><strong id="modalName" class="max-w-[62%] text-right text-white">—</strong></div>
+        <div class="flex justify-between gap-4 border-b border-white/10 pb-3"><span class="text-stone-500">ගීතය</span><strong id="modalSong" class="max-w-[62%] text-right text-amber-200">—</strong></div>
+        <div class="flex justify-between gap-4"><span class="text-stone-500">WhatsApp</span><strong id="modalWhatsapp" class="text-right text-white">—</strong></div>
       </div>
-      <div class="pass-actions no-print"><button class="btn" id="printPass" type="button">Print / Save PDF</button><button class="btn" type="button" data-close="passModal">වසන්න</button></div>
+      <div class="no-print mt-6 flex gap-3"><button onclick="window.print()" class="flex-1 rounded-xl bg-white/10 py-3 text-sm font-bold text-stone-200 transition hover:bg-white/15" type="button">🖨️ Print slip</button><button onclick="closePassModal()" class="flex-1 rounded-xl bg-amber-400 py-3 text-sm font-black text-stone-950 transition hover:bg-amber-300" type="button">හරි</button></div>
     </div>
   </div>
-</div>
 
-<div id="selectedSongsModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="songsTitle" hidden>
-  <div class="modal-card">
-    <div class="modal-head"><h2 id="songsTitle">තෝරාගත් ගීත ලැයිස්තුව</h2><button class="close" type="button" data-close="selectedSongsModal" aria-label="Close">×</button></div>
-    <div class="modal-body">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap">
-        <span class="hint">Google Sheet හි “Selected Songs” ටැබයට ඇතුළත් කර ඇති ගීත මෙහි දිස්වේ.</span>
-        <button class="btn" type="button" id="refreshSongs">↻ යාවත්කාලීන කරන්න</button>
-      </div>
-      <div class="table-wrap"><table>
-        <thead><tr><th>#</th><th>ගායකයා / ගායිකාව</th><th>ගීතය</th><th>Karaoke</th></tr></thead>
-        <tbody id="selectedSongsTableBody"><tr><td colspan="4" class="empty">ගීත ලැයිස්තුව ලබාගැනීමට විවෘත කරන්න.</td></tr></tbody>
-      </table></div>
-      <div id="songsStatus" class="status" role="status" aria-live="polite" hidden></div>
+  <div id="selectedSongsModal" class="modal-backdrop fixed inset-0 z-50 hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="lineupTitle">
+    <div class="modal-panel glass flex max-h-[88vh] w-full max-w-4xl flex-col rounded-[28px] p-5 sm:p-8">
+      <div class="mb-4 flex items-start justify-between gap-4 border-b border-amber-500/15 pb-5"><div><p class="text-xs font-bold uppercase tracking-[.18em] text-amber-400">The evening lineup</p><h2 id="lineupTitle" class="mt-1 text-xl font-black text-amber-200 sm:text-2xl">තෝරාගත් ගීත ලැයිස්තුව</h2></div><button onclick="closeSelectedSongsModal()" class="rounded-xl px-2 text-2xl text-stone-500 transition hover:bg-white/10 hover:text-white" aria-label="Modal වසා දමන්න" type="button">×</button></div>
+      <div class="mb-4 flex items-center justify-between gap-3 text-xs text-stone-400"><span>ප්‍රසංගය සඳහා තහවුරු කළ ගීත පෙළගැස්ම</span><button onclick="fetchSelectedSongs()" class="inline-flex items-center gap-1.5 font-bold text-amber-300 transition hover:text-amber-200" type="button"><span id="refreshIcon">↻</span> Refresh</button></div>
+      <div class="min-h-0 flex-1 overflow-auto rounded-2xl border border-white/10 bg-stone-950/60"><table class="w-full min-w-[600px] text-left text-xs sm:text-sm"><thead class="sticky top-0 z-10 border-b border-amber-500/15 bg-[#24160a] text-amber-300"><tr><th class="p-4 text-center">#</th><th class="p-4">ගායකයා / ගායිකාව</th><th class="p-4">ගීතය</th><th class="p-4 text-right">Karaoke</th></tr></thead><tbody id="selectedSongsTableBody" class="divide-y divide-white/10"></tbody></table></div>
+      <div class="mt-5 flex justify-end"><button onclick="closeSelectedSongsModal()" class="rounded-xl bg-white/10 px-5 py-2.5 text-sm font-bold text-stone-200 transition hover:bg-white/15" type="button">වසන්න</button></div>
     </div>
-    <div class="modal-foot"><button class="btn" type="button" data-close="selectedSongsModal">වසන්න</button></div>
   </div>
-</div>
 
-<script>
-(() => {
-  "use strict";
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybIuaNRqhmrzYkIzzXgZFWb4_6WGFCTK-rHbzNeAe6K4ARzXNT7WzBbwikNK-3ciUn/exec";
+    const $ = (id) => document.getElementById(id);
+    const formFields = ['singerName', 'whatsappNum', 'songName', 'youtubeUrl'];
 
-  // Keep the deployed Google Apps Script Web App URL here.
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybIuaNRqhmrzYkIzzXgZFWb4_6WGFCTK-rHbzNeAe6K4ARzXNT7WzBbwikNK-3ciUn/exec";
-  const $ = (id) => document.getElementById(id);
-  const form = $("singerForm");
-  const submitBtn = $("submitBtn");
-  const statusAlert = $("statusAlert");
-  let submitting = false;
+    function extractYouTubeID(url) {
+      if (!url) return null;
+      try {
+        const parsed = new URL(url);
+        let id = parsed.hostname.includes('youtu.be') ? parsed.pathname.slice(1) : parsed.searchParams.get('v');
+        if (!id && parsed.pathname.includes('/embed/')) id = parsed.pathname.split('/embed/')[1];
+        if (!id && parsed.pathname.includes('/shorts/')) id = parsed.pathname.split('/shorts/')[1];
+        return id && /^[\w-]{11}$/.test(id.slice(0, 11)) ? id.slice(0, 11) : null;
+      } catch { return null; }
+    }
 
-  function showStatus(el, message, type) {
-    el.textContent = message;
-    el.className = "status " + type;
-    el.hidden = false;
-  }
-
-  function extractYouTubeID(rawUrl) {
-    try {
-      const url = new URL(rawUrl);
-      const host = url.hostname.toLowerCase().replace(/^www\./, "").replace(/^m\./, "");
-      let id = "";
-      if (host === "youtu.be") id = url.pathname.split("/").filter(Boolean)[0] || "";
-      else if (["youtube.com", "music.youtube.com", "youtube-nocookie.com"].includes(host)) {
-        if (url.pathname === "/watch") id = url.searchParams.get("v") || "";
-        else {
-          const parts = url.pathname.split("/").filter(Boolean);
-          if (["embed", "shorts", "live", "v"].includes(parts[0])) id = parts[1] || "";
-        }
+    function handleYouTubeInput(value) {
+      const id = extractYouTubeID(value);
+      if (id) {
+        $('ytFrame').src = `https://www.youtube-nocookie.com/embed/${id}`;
+        $('ytPreviewContainer').classList.remove('hidden');
+        $('urlCheck').classList.remove('hidden');
+        $('youtubeUrl').classList.add('valid');
+      } else {
+        $('urlCheck').classList.add('hidden');
+        $('youtubeUrl').classList.remove('valid');
+        if (!value) hideYouTubePreview();
       }
-      return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : null;
-    } catch (_) { return null; }
-  }
-
-  function updateYouTubePreview() {
-    const id = extractYouTubeID($("youtubeUrl").value.trim());
-    const container = $("ytPreviewContainer");
-    const frame = $("ytFrame");
-    if (!id) {
-      frame.src = "";
-      container.hidden = true;
-      return;
     }
-    const nextSrc = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(id);
-    if (frame.src !== nextSrc) frame.src = nextSrc;
-    container.hidden = false;
-  }
-
-  $("youtubeUrl").addEventListener("input", updateYouTubePreview);
-
-  function makeReferenceCode() {
-    const bytes = new Uint32Array(1);
-    if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(bytes);
-    else bytes[0] = Math.floor(Math.random() * 0xffffffff);
-    return "TT-" + String(bytes[0] % 1000000).padStart(6, "0");
-  }
-
-  function openModal(id) {
-    $(id).hidden = false;
-    const close = $(id).querySelector("[data-close]");
-    if (close) close.focus();
-  }
-  function closeModal(id) { $(id).hidden = true; }
-  document.querySelectorAll("[data-close]").forEach((btn) => {
-    btn.addEventListener("click", () => closeModal(btn.dataset.close));
-  });
-  document.querySelectorAll(".modal").forEach((modal) => {
-    modal.addEventListener("click", (event) => { if (event.target === modal) modal.hidden = true; });
-  });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") document.querySelectorAll(".modal:not([hidden])").forEach((m) => m.hidden = true);
-  });
-  $("printPass").addEventListener("click", () => window.print());
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (submitting) return;
-
-    const name = $("singerName").value.trim();
-    const song = $("songName").value.trim();
-    const youtube = $("youtubeUrl").value.trim();
-    const whatsapp = $("whatsappNum").value.trim();
-    if (!name || !song || !whatsapp) {
-      showStatus(statusAlert, "කරුණාකර අවශ්‍ය සියලු තොරතුරු ඇතුළත් කරන්න.", "error");
-      return;
+    function hideYouTubePreview() { $('ytFrame').src = ''; $('ytPreviewContainer').classList.add('hidden'); }
+    function setStatus(message, type = 'loading') {
+      const styles = { loading: 'border border-amber-400/20 bg-amber-400/10 text-amber-200', success: 'border border-emerald-400/20 bg-emerald-400/10 text-emerald-200', error: 'border border-red-400/20 bg-red-400/10 text-red-200' };
+      $('statusAlert').className = `rounded-2xl p-4 text-sm font-medium ${styles[type]}`;
+      $('statusAlert').textContent = message;
+      $('statusAlert').classList.remove('hidden');
     }
-    if (!extractYouTubeID(youtube)) {
-      showStatus(statusAlert, "කරුණාකර නිවැරදි YouTube Karaoke සබැඳියක් ඇතුළත් කරන්න.", "error");
-      $("youtubeUrl").focus();
-      return;
-    }
-
-    const payload = { name, song, youtube, whatsapp, id: makeReferenceCode() };
-    submitting = true;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "යොමු කරමින් පවතී…";
-    showStatus(statusAlert, "ඔබගේ තොරතුරු යොමු කරමින් පවතී. කරුණාකර මෙම පිටුව වසා නොදමන්න.", "info");
-
-    try {
-      /*
-       * This matches the current Apps Script doPost(e) endpoint, which accepts
-       * JSON text/plain. With mode:"no-cors", browser JavaScript cannot inspect
-       * the Apps Script JSON response, so this UI must not claim verified success.
-       */
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload)
+    function generateEntryCode() { return '#PYR-' + Math.floor(1000 + Math.random() * 9000); }
+    function validateForm() {
+      let valid = true;
+      formFields.forEach(id => {
+        const field = $(id);
+        const isValid = field.checkValidity() && (id !== 'youtubeUrl' || !!extractYouTubeID(field.value));
+        field.classList.toggle('invalid', !isValid); field.classList.toggle('valid', isValid); if (!isValid) valid = false;
       });
-
-      $("modalCode").textContent = payload.id;
-      $("modalName").textContent = payload.name;
-      $("modalSong").textContent = payload.song;
-      $("modalWhatsapp").textContent = payload.whatsapp;
-      showStatus(statusAlert, "ලියාපදිංචි ඉල්ලීම යැවීමට උත්සාහ කර ඇත. මෙම browser ක්‍රමයෙන් Google Sheet එකට සාර්ථකව සුරැකි බව තහවුරු කළ නොහැකි නිසා, ඔබගේ යොමු අංකය සුරකින්න.", "info");
-      openModal("passModal");
-      form.reset();
-      $("ytFrame").src = "";
-      $("ytPreviewContainer").hidden = true;
-    } catch (error) {
-      showStatus(statusAlert, "දත්ත යැවීමට නොහැකි විය. අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.", "error");
-    } finally {
-      submitting = false;
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'ලියාපදිංචි වන්න <span aria-hidden="true">→</span>';
+      return valid;
     }
-  });
-
-  function addCell(row, value) {
-    const cell = document.createElement("td");
-    cell.textContent = value == null ? "" : String(value);
-    row.appendChild(cell);
-    return cell;
-  }
-
-  async function fetchSelectedSongs() {
-    const tbody = $("selectedSongsTableBody");
-    const refresh = $("refreshSongs");
-    tbody.replaceChildren();
-    const loadingRow = document.createElement("tr");
-    const loadingCell = document.createElement("td");
-    loadingCell.colSpan = 4;
-    loadingCell.className = "empty";
-    loadingCell.textContent = "ගීත ලැයිස්තුව ලබාගනිමින් පවතී…";
-    loadingRow.appendChild(loadingCell);
-    tbody.appendChild(loadingRow);
-    refresh.disabled = true;
-    $("songsStatus").hidden = true;
-
-    try {
-      const response = await fetch(SCRIPT_URL, { method: "GET", cache: "no-store" });
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      const data = await response.json();
-      if (!Array.isArray(data)) throw new Error("Expected a JSON array from Apps Script GET endpoint");
-
-      // The current Apps Script doGet() reads the "Selected Songs" tab
-      // and returns an array of {no, singer, name, song, youtube, notes}.
-      // Therefore, do not filter by a status property here.
-      const selectedSongs = data.filter((item) =>
-        item && String(item.singer || item.name || "").trim() &&
-        String(item.song || "").trim()
-      );
-
-      if (selectedSongs.length === 0) {
-        tbody.replaceChildren();
-        const row = document.createElement("tr");
-        const cell = document.createElement("td");
-        cell.colSpan = 4;
-        cell.className = "empty";
-        cell.textContent = '“Selected Songs” ටැබයේ පෙන්වීමට ගීත තවමත් නොමැත.';
-        row.appendChild(cell);
-        tbody.appendChild(row);
-        return;
-      }
-
-      tbody.replaceChildren();
-      selectedSongs.forEach((item, index) => {
-        const row = document.createElement("tr");
-        addCell(row, item.no || index + 1);
-        addCell(row, item.singer || item.name || "—");
-        addCell(row, item.song || "—");
-        const linkCell = document.createElement("td");
-        if (item.youtube && extractYouTubeID(String(item.youtube))) {
-          const link = document.createElement("a");
-          link.className = "play";
-          link.href = String(item.youtube);
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.textContent = "▶ Play";
-          linkCell.appendChild(link);
-        } else {
-          linkCell.textContent = "—";
-        }
-        row.appendChild(linkCell);
-        tbody.appendChild(row);
-      });
-    } catch (error) {
-      tbody.replaceChildren();
-      const row = document.createElement("tr");
-      const cell = document.createElement("td");
-      cell.colSpan = 4;
-      cell.className = "empty";
-      cell.textContent = "ලැයිස්තුව ලබාගැනීමට නොහැකි විය. Apps Script Web App හි GET response සහ අවසර පරීක්ෂා කර නැවත උත්සාහ කරන්න.";
-      row.appendChild(cell);
-      tbody.appendChild(row);
-      showStatus($("songsStatus"), "Google Sheet වෙතින් දත්ත ලබාගැනීම අසාර්ථක විය.", "error");
-    } finally {
-      refresh.disabled = false;
+    async function handleFormSubmit(event) {
+      event.preventDefault();
+      if (!validateForm()) { setStatus('කරුණාකර අවශ්‍ය සියලුම තොරතුරු නිවැරදිව ඇතුළත් කරන්න.', 'error'); $('singerForm').querySelector('.invalid')?.focus(); return; }
+      const payload = { name: $('singerName').value.trim(), song: $('songName').value.trim(), youtube: $('youtubeUrl').value.trim(), whatsapp: $('whatsappNum').value.trim(), id: generateEntryCode() };
+      const button = $('submitBtn'); button.disabled = true; button.innerHTML = '<span class="spin">◌</span><span>දත්ත යොමු කරමින්...</span>'; setStatus('දත්ත Google Sheet එකට යොමු කරමින් පවතී...', 'loading');
+      try {
+        await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
+        setStatus('✓ ඔබගේ ලියාපදිංචිය සාර්ථකව සම්පූර්ණ විය!', 'success');
+        $('modalCode').textContent = payload.id; $('modalName').textContent = payload.name; $('modalSong').textContent = payload.song; $('modalWhatsapp').textContent = payload.whatsapp;
+        $('passModal').classList.remove('hidden'); $('passModal').classList.add('flex'); $('singerForm').reset(); formFields.forEach(id => $(id).classList.remove('valid', 'invalid')); hideYouTubePreview();
+      } catch (error) { setStatus('දෝෂයක් සිදුවිය. කරුණාකර අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.', 'error'); }
+      finally { button.disabled = false; button.innerHTML = '<span>✨ ලියාපදිංචි වන්න</span><span class="font-normal opacity-70">(Register for Show)</span><span>→</span>'; }
     }
-  }
-
-  $("openSongs").addEventListener("click", () => {
-    openModal("selectedSongsModal");
-    fetchSelectedSongs();
-  });
-  $("refreshSongs").addEventListener("click", fetchSelectedSongs);
-})();
-</script>
+    function closePassModal() { $('passModal').classList.add('hidden'); $('passModal').classList.remove('flex'); }
+    function openSelectedSongsModal() { $('selectedSongsModal').classList.remove('hidden'); $('selectedSongsModal').classList.add('flex'); fetchSelectedSongs(); }
+    function closeSelectedSongsModal() { $('selectedSongsModal').classList.add('hidden'); $('selectedSongsModal').classList.remove('flex'); }
+    function escapeHTML(value) { return String(value ?? '').replace(/[&<>'"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[c])); }
+    async function fetchSelectedSongs() {
+      const body = $('selectedSongsTableBody'); const icon = $('refreshIcon'); icon.classList.add('spin');
+      body.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-amber-200/70">ගීත ලැයිස්තුව ලබාගනිමින් පවතී...</td></tr>';
+      try {
+        const response = await fetch(SCRIPT_URL); const data = await response.json();
+        if (!Array.isArray(data) || !data.length) { body.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-stone-500">තවමත් ගීත තෝරාගෙන නොමැත.</td></tr>'; return; }
+        body.innerHTML = data.map((item, index) => `<tr class="transition hover:bg-amber-400/[.05]"><td class="p-4 text-center font-mono font-bold text-amber-400">${escapeHTML(item.no || index + 1)}</td><td class="p-4 font-semibold text-white">${escapeHTML(item.singer || '—')}</td><td class="p-4 text-amber-200">${escapeHTML(item.song || '—')}</td><td class="p-4 text-right">${item.youtube ? `<a href="${escapeHTML(item.youtube)}" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-lg border border-red-400/25 bg-red-500/10 px-3 py-1.5 font-bold text-red-300 transition hover:bg-red-500 hover:text-white">▶ Play</a>` : '<span class="text-stone-600">—</span>'}</td></tr>`).join('');
+      } catch { body.innerHTML = '<tr><td colspan="4" class="p-10 text-center text-red-300">ලැයිස්තුව ලබාගැනීමේදී ගැටලුවක් මතු විය. නැවත උත්සාහ කරන්න.</td></tr>'; }
+      finally { icon.classList.remove('spin'); }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePassModal(); closeSelectedSongsModal(); } });
+    document.querySelectorAll('.field').forEach(field => field.addEventListener('blur', validateForm));
+  </script>
 </body>
 </html>
