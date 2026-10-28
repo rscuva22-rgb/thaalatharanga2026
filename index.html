@@ -173,6 +173,40 @@
     .field::placeholder { color: #78716c; }
     .field.invalid { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,.10); }
     .field.valid { border-color: #34d399; }
+    .audio-control {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .audio-control::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(100deg, transparent, rgba(251,191,36,.16), transparent);
+      transform: translateX(-110%);
+      transition: transform .5s ease;
+    }
+    .audio-control:hover::before { transform: translateX(110%); }
+    .audio-bars { display: inline-flex; align-items: end; gap: 2px; height: 14px; }
+    .audio-bars i { display: block; width: 2px; height: 5px; border-radius: 2px; background: currentColor; }
+    .audio-control.is-playing .audio-bars i { animation: audioBar .8s ease-in-out infinite alternate; }
+    .audio-control.is-playing .audio-bars i:nth-child(2) { animation-delay: -.4s; }
+    .audio-control.is-playing .audio-bars i:nth-child(3) { animation-delay: -.65s; }
+    @keyframes audioBar { from { height: 4px; } to { height: 13px; } }
+    .storm-toggle { position: relative; overflow: hidden; }
+    .storm-toggle.is-active { border-color: rgba(251,191,36,.65); background: rgba(245,158,11,.24); color: #fde68a; box-shadow: 0 0 22px rgba(245,158,11,.18); }
+    .storm-toggle.is-active .storm-icon { animation: stormIcon 1.2s ease-in-out infinite; }
+    .storm-icon { display: inline-block; }
+    .sandstorm-layer { position: fixed; inset: 0; z-index: 35; pointer-events: none; overflow: hidden; opacity: 0; transition: opacity .7s ease; mix-blend-mode: screen; }
+    .sandstorm-layer.is-active { opacity: 1; }
+    .sandstorm-layer::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 72%, rgba(217,119,6,.20), transparent 57%), linear-gradient(12deg, transparent 20%, rgba(245,158,11,.06) 49%, transparent 73%); animation: stormGlow 3.5s ease-in-out infinite alternate; }
+    .sand-grain { position: absolute; left: var(--left); top: var(--top); width: var(--size); height: var(--size); border-radius: 50%; background: #fbbf24; opacity: var(--opacity); filter: blur(var(--blur)); transform: translateX(-20vw); animation: sandBlow var(--duration) linear var(--delay) infinite; }
+    .sand-gust { position: absolute; left: -15%; top: var(--top); width: var(--width); height: var(--height); border-radius: 100%; background: linear-gradient(90deg, transparent, rgba(253,230,138,.38), transparent); filter: blur(2px); opacity: .42; transform: rotate(var(--angle)); animation: gustBlow var(--duration) ease-in-out var(--delay) infinite; }
+    @keyframes sandBlow { from { transform: translate3d(-25vw, 10vh, 0) rotate(0deg); } to { transform: translate3d(130vw, -12vh, 0) rotate(280deg); } }
+    @keyframes gustBlow { 0%,100% { transform: translateX(-35vw) rotate(var(--angle)) scaleX(.65); opacity: 0; } 35% { opacity: .5; } 70% { opacity: .25; } 100% { transform: translateX(145vw) rotate(var(--angle)) scaleX(1.25); opacity: 0; } }
+    @keyframes stormGlow { from { opacity: .35; transform: translateX(-2%); } to { opacity: .9; transform: translateX(2%); } }
+    @keyframes stormIcon { 0%,100% { transform: translateX(0) rotate(0); } 50% { transform: translateX(3px) rotate(-8deg); } }
     .modal-backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(12px); }
     .modal-panel { animation: rise .25s ease-out both; }
     @keyframes rise { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
@@ -191,6 +225,9 @@
 <body class="page-bg min-h-screen antialiased selection:bg-amber-400 selection:text-stone-950">
   <a href="#registration" class="sr-only-focusable fixed left-4 top-4 z-[100] rounded-lg bg-amber-400 px-4 py-2 font-bold text-stone-950">ප්‍රධාන අන්තර්ගතයට යන්න</a>
 
+  <audio id="egyptianAudio" src="egyptian-pyramid-ambient.mp3" loop preload="metadata"></audio>
+  <div id="sandstormLayer" class="sandstorm-layer is-active" aria-hidden="true"></div>
+
   <header class="sticky top-0 z-40 border-b border-amber-500/15 bg-stone-950/75 px-4 py-3 backdrop-blur-xl">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
       <a href="#top" class="flex items-center gap-3" aria-label="තාල තරංග මුල් පිටුව">
@@ -200,9 +237,14 @@
           <span class="block text-[11px] text-amber-100/60 sm:text-xs">මියුරු ගී සැඳෑව</span>
         </span>
       </a>
-      <button onclick="openSelectedSongsModal()" class="group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20 sm:px-4 sm:text-sm" type="button">
-        <span class="text-base transition group-hover:rotate-6">♬</span><span>ගීත ලැයිස්තුව</span>
-      </button>
+      <div class="flex items-center gap-2">
+        <button id="musicToggle" onclick="toggleMusic()" class="audio-control group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20" type="button" aria-pressed="false" aria-label="පසුබිම් සංගීතය ක්‍රියාත්මක කරන්න">
+          <span class="audio-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="musicLabel">Music off</span>
+        </button>
+        <button onclick="openSelectedSongsModal()" class="group inline-flex items-center gap-2 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs font-bold text-amber-200 transition hover:border-amber-300/60 hover:bg-amber-400/20 sm:px-4 sm:text-sm" type="button">
+          <span class="text-base transition group-hover:rotate-6">♬</span><span>ගීත ලැයිස්තුව</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -310,6 +352,83 @@
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbybIuaNRqhmrzYkIzzXgZFWb4_6WGFCTK-rHbzNeAe6K4ARzXNT7WzBbwikNK-3ciUn/exec";
     const $ = (id) => document.getElementById(id);
     const formFields = ['singerName', 'whatsappNum', 'songName', 'youtubeUrl'];
+    let audioContext;
+
+    function playUiSound(type = 'click') {
+      try {
+        audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+        if (audioContext.state === 'suspended') audioContext.resume();
+        const now = audioContext.currentTime;
+        const notes = type === 'success' ? [523.25, 659.25, 783.99] : [392, 523.25];
+        notes.forEach((frequency, index) => {
+          const oscillator = audioContext.createOscillator();
+          const gain = audioContext.createGain();
+          oscillator.type = type === 'success' ? 'sine' : 'triangle';
+          oscillator.frequency.value = frequency;
+          gain.gain.setValueAtTime(0.0001, now + index * 0.09);
+          gain.gain.exponentialRampToValueAtTime(type === 'success' ? 0.045 : 0.022, now + index * 0.09 + 0.012);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + index * 0.09 + (type === 'success' ? 0.35 : 0.12));
+          oscillator.connect(gain).connect(audioContext.destination);
+          oscillator.start(now + index * 0.09);
+          oscillator.stop(now + index * 0.09 + (type === 'success' ? 0.38 : 0.14));
+        });
+      } catch (_) { /* Audio is an enhancement; the page remains fully usable without it. */ }
+    }
+
+    async function toggleMusic() {
+      const audio = $('egyptianAudio');
+      const button = $('musicToggle');
+      const label = $('musicLabel');
+      if (audio.paused) {
+        try {
+          await audio.play();
+          audio.volume = 0.28;
+          button.classList.add('is-playing');
+          button.setAttribute('aria-pressed', 'true');
+          button.setAttribute('aria-label', 'පසුබිම් සංගීතය නවත්වන්න');
+          label.textContent = 'Music on';
+          playUiSound('toggle');
+        } catch (_) {
+          label.textContent = 'Tap to play';
+        }
+      } else {
+        audio.pause();
+        button.classList.remove('is-playing');
+        button.setAttribute('aria-pressed', 'false');
+        button.setAttribute('aria-label', 'පසුබිම් සංගීතය ක්‍රියාත්මක කරන්න');
+        label.textContent = 'Music off';
+        playUiSound('toggle');
+      }
+    }
+
+    function createSandstormParticles() {
+      const layer = $('sandstormLayer');
+      const fragment = document.createDocumentFragment();
+      for (let i = 0; i < 74; i++) {
+        const grain = document.createElement('span');
+        grain.className = 'sand-grain';
+        grain.style.setProperty('--left', `${Math.random() * 100}%`);
+        grain.style.setProperty('--top', `${15 + Math.random() * 78}%`);
+        grain.style.setProperty('--size', `${1 + Math.random() * 3}px`);
+        grain.style.setProperty('--opacity', `${0.16 + Math.random() * 0.48}`);
+        grain.style.setProperty('--blur', `${Math.random() * 2}px`);
+        grain.style.setProperty('--duration', `${5 + Math.random() * 9}s`);
+        grain.style.setProperty('--delay', `${-Math.random() * 12}s`);
+        fragment.appendChild(grain);
+      }
+      for (let i = 0; i < 9; i++) {
+        const gust = document.createElement('span');
+        gust.className = 'sand-gust';
+        gust.style.setProperty('--top', `${18 + Math.random() * 70}%`);
+        gust.style.setProperty('--width', `${180 + Math.random() * 340}px`);
+        gust.style.setProperty('--height', `${2 + Math.random() * 5}px`);
+        gust.style.setProperty('--angle', `${-8 + Math.random() * 16}deg`);
+        gust.style.setProperty('--duration', `${7 + Math.random() * 8}s`);
+        gust.style.setProperty('--delay', `${-Math.random() * 14}s`);
+        fragment.appendChild(gust);
+      }
+      layer.appendChild(fragment);
+    }
 
     function extractYouTubeID(url) {
       if (!url) return null;
@@ -360,6 +479,7 @@
       try {
         await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(payload) });
         setStatus('✓ ඔබගේ ලියාපදිංචිය සාර්ථකව සම්පූර්ණ විය!', 'success');
+        playUiSound('success');
         $('modalCode').textContent = payload.id; $('modalName').textContent = payload.name; $('modalSong').textContent = payload.song; $('modalWhatsapp').textContent = payload.whatsapp;
         $('passModal').classList.remove('hidden'); $('passModal').classList.add('flex'); $('singerForm').reset(); formFields.forEach(id => $(id).classList.remove('valid', 'invalid')); hideYouTubePreview();
       } catch (error) { setStatus('දෝෂයක් සිදුවිය. කරුණාකර අන්තර්ජාල සම්බන්ධතාවය පරීක්ෂා කර නැවත උත්සාහ කරන්න.', 'error'); }
@@ -380,6 +500,15 @@
       finally { icon.classList.remove('spin'); }
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') { closePassModal(); closeSelectedSongsModal(); } });
+    document.addEventListener('click', e => { if (e.target.closest('button') && !e.target.closest('#musicToggle')) playUiSound('click'); });
+    createSandstormParticles();
+    document.addEventListener('pointermove', e => {
+      const scene = document.querySelector('.egypt-scene');
+      if (!scene || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const x = (e.clientX / window.innerWidth - .5) * 8;
+      const y = (e.clientY / window.innerHeight - .5) * 5;
+      scene.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    }, { passive: true });
     document.querySelectorAll('.field').forEach(field => field.addEventListener('blur', validateForm));
   </script>
 </body>
